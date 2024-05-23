@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5x4q4okmydmv"]
+
+[ext_resource type="Texture2D" uid="uid://c33bqr288kou3" path="res://icon.svg" id="1_bvpe8"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pi5vt"]
+[ext_resource type="Texture2D" uid="uid://o5kd44qr2lpd" path="res://assets/sprites/jellyfish.png" id="2_4qp8i"]
+[ext_resource type="Script" path="res://scripts/arrow.gd" id="3_c78ti"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_pi5vt")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.117188, 0.117187)
+texture = ExtResource("2_4qp8i")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_bvpe8")
+script = ExtResource("3_c78ti")
