@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5x4q4okmydmv"]
+[gd_scene load_steps=10 format=3 uid="uid://b5x4q4okmydmv"]
 
 [ext_resource type="Texture2D" uid="uid://c33bqr288kou3" path="res://icon.svg" id="1_bvpe8"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pi5vt"]
 [ext_resource type="Texture2D" uid="uid://o5kd44qr2lpd" path="res://assets/sprites/jellyfish.png" id="2_4qp8i"]
+[ext_resource type="PackedScene" uid="uid://dckry7j0r7ey0" path="res://scenes/hurtbox.tscn" id="4_k8u5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2kb6"]
 size = Vector2(28, 28)
@@ -45,6 +46,9 @@ _data = {
 "rotate": SubResource("Animation_w3aib")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_igm6i"]
+radius = 12.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_pi5vt")
@@ -68,3 +72,9 @@ libraries = {
 "": SubResource("AnimationLibrary_nmy17")
 }
 autoplay = "rotate"
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_k8u5i")]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_igm6i")
