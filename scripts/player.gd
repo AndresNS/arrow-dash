@@ -11,7 +11,7 @@ const SPEED: float = 100.0
 @onready var arrow_animation: AnimationPlayer = $ArrowContainer/AnimationPlayer
 @onready var hurtbox_node: Area2D = $Hurtbox
 
-var arrow_speed: float = 2.0
+var arrow_speed: float = 1.5
 var max_health: int = 100
 var health: int = max_health
 var hurtbox: Hurtbox

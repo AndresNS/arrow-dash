@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=20 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_pm8cm"]
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="1_ulfj1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://uqqocnpsdqml" path="res://scenes/static_obstacle.tscn" id="3_kvxn7"]
 [ext_resource type="PackedScene" uid="uid://c25d0qh53i3x1" path="res://scenes/animated_obstacle.tscn" id="4_lxg88"]
 [ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemy.tscn" id="5_nci23"]
+[ext_resource type="PackedScene" uid="uid://6hab0tsvn3y3" path="res://scenes/heal_pickup.tscn" id="7_4avi2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6y4t"]
 texture = ExtResource("2_fxhwg")
@@ -535,5 +536,10 @@ position = Vector2(242, -191)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("5_nci23")]
 position = Vector2(-111, 131)
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="HealPickup" parent="Pickups" instance=ExtResource("7_4avi2")]
+position = Vector2(-17, 129)
 
 [connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
