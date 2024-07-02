@@ -1,12 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=21 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_pm8cm"]
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="1_ulfj1"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_3e467"]
 [ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="2_fxhwg"]
 [ext_resource type="PackedScene" uid="uid://uqqocnpsdqml" path="res://scenes/static_obstacle.tscn" id="3_kvxn7"]
 [ext_resource type="PackedScene" uid="uid://c25d0qh53i3x1" path="res://scenes/animated_obstacle.tscn" id="4_lxg88"]
 [ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemy.tscn" id="5_nci23"]
 [ext_resource type="PackedScene" uid="uid://6hab0tsvn3y3" path="res://scenes/heal_pickup.tscn" id="7_4avi2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_76dh6"]
+font_size = 10
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6y4t"]
 texture = ExtResource("2_fxhwg")
@@ -451,11 +455,42 @@ _data = {
 "move": SubResource("Animation_411l0")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_76dh6"]
-font_size = 10
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_pm8cm")
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_3e467")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 320.0
+
+[node name="HPLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 19.0
+grow_horizontal = 0
+text = "HP:"
+label_settings = SubResource("LabelSettings_76dh6")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 48.0
+offset_bottom = 19.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_76dh6")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(4, 1)
@@ -540,36 +575,6 @@ position = Vector2(-17, 129)
 
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 180.0
-offset_bottom = 320.0
-
-[node name="HPLabel" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -46.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = 19.0
-grow_horizontal = 0
-text = "HP:"
-label_settings = SubResource("LabelSettings_76dh6")
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 1
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 48.0
-offset_bottom = 19.0
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_76dh6")
 
 [connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
