@@ -20,3 +20,9 @@ func update_score(amount: int) -> void:
 	score += amount
 	score_label.text = "Score: %d" % score
 	
+func end_game() -> void:
+	current_game_state = GameState.GAME_OVER
+	print("Game Over")
+	
+	print("Restarting...")
+	get_tree().reload_current_scene()

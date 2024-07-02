@@ -9,17 +9,10 @@ class_name Game
 func _ready() -> void:
 	game_manager.update_hp_label(player.health, player.max_health)
 
-func end_game() -> void:
-	game_manager.current_game_state = game_manager.GameState.GAME_OVER
-	print("Game Over")
-	
-	print("Restarting...")
-	get_tree().reload_current_scene()
-
 func _on_player_health_changed(new_health: int) -> void:
 	game_manager.update_hp_label(new_health, player.max_health)
 	if (new_health <= 0):
-		call_deferred("end_game")
+		game_manager.call_deferred("end_game")
 
 func _on_score_timer_timeout() -> void:
 	game_manager.update_score(game_manager.score_per_second)
