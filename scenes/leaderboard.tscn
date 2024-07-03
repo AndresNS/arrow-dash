@@ -1,10 +1,40 @@
-[gd_scene format=3 uid="uid://c3dclosa1vbog"]
+[gd_scene load_steps=2 format=3 uid="uid://c3dclosa1vbog"]
 
-[node name="Leaderboard" type="Node2D"]
+[ext_resource type="Script" path="res://scripts/leaderboard.gd" id="1_o5jox"]
+
+[node name="Leaderboard" type="CanvasLayer"]
+script = ExtResource("1_o5jox")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(8.66354e-07, 0.256326, 0.337625, 1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 16.0
-offset_top = 24.0
-offset_right = 116.0
-offset_bottom = 47.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 23.0
+grow_horizontal = 2
 text = "Leaderboard"
+
+[node name="MainMenuButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

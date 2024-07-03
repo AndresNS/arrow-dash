@@ -4,10 +4,10 @@ class_name Enemy
 
 @onready var game_manager: GameManager = null
 
-const SPEED: float = 65.0
+const SPEED: float = 365.0
 
 var player: Player = null
-var attack_damage: int = 5
+var attack_damage: int = 25
 
 func _ready() -> void:
 	game_manager = get_tree().current_scene.get_node("GameManager")

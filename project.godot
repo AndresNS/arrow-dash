@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="ArrowDash"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/scene_manager.gd"
 
 [debug]
 

@@ -6,7 +6,7 @@ class_name Spawner
 
 const EnemyScene = preload("res://scenes/enemy.tscn")
 
-@export var spawn_rate: float = 5.0
+@export var spawn_rate: float = 1.0
 var game: Game = null
 
 func _ready() -> void:

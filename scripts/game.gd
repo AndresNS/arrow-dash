@@ -12,6 +12,7 @@ func _ready() -> void:
 	game_manager.game_over.connect(on_game_over)
 	game_over_hud.restart_game.connect(on_game_restart)
 	game_over_hud.hide()
+	Engine.time_scale = 1
 
 func _on_player_health_changed(new_health: int) -> void:
 	game_manager.update_hp_label(new_health, player.max_health)
