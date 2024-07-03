@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3dclosa1vbog"]
+
+[node name="Leaderboard" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 116.0
+offset_bottom = 47.0
+text = "Leaderboard"

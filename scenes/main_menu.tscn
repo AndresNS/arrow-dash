@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0huqwl0h8fnl"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 40.0
+offset_right = 136.0
+offset_bottom = 63.0
+text = "Main Menu"
