@@ -599,6 +599,7 @@ z_index = 100
 position = Vector2(96, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
 
 [node name="Obstacles" type="Node" parent="."]
 

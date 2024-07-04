@@ -5,6 +5,7 @@ class_name Player
 signal health_changed(new_health: int) 
 
 const SPEED: float = 100.0
+const INITIAL_SPEED_BOOST: float = 2.0
 
 @onready var player_sprite: Sprite2D = $PlayerSprite
 @onready var arrow_container: Node2D = $ArrowContainer
@@ -15,6 +16,8 @@ var arrow_speed: float = 1.5
 var max_health: int = 100
 var health: int = max_health
 var hurtbox: Hurtbox
+var is_boosting: bool = false
+var speed_boost: float = INITIAL_SPEED_BOOST
 
 func _ready() -> void:
 	arrow_animation.speed_scale = arrow_speed
@@ -24,16 +27,24 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var arrow_angle: float = arrow_container.rotation
-	
+		
 	if Input.is_action_just_pressed("ui_accept"):
+		speed_boost = INITIAL_SPEED_BOOST
 		player_sprite.rotation = arrow_angle
 		velocity = Vector2(cos(arrow_angle - PI/2), sin(arrow_angle - PI/2)) * SPEED
 	
-	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	var collision: KinematicCollision2D = move_and_collide((velocity * speed_boost) * delta)
 	
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		player_sprite.rotation = velocity.angle() + PI/2
+	
+	if (speed_boost >= 1):
+		speed_boost -= 0.05
+		if (speed_boost < 1):
+			speed_boost = 1
+	
+	print(speed_boost)
 
 func take_damage(amount: int) -> void:
 	health -= amount
