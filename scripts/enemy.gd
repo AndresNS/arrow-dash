@@ -22,5 +22,5 @@ func _physics_process(_delta: float) -> void:
 		velocity = direction * SPEED
 		move_and_slide()
 
-func self_destruct()->void:
+func self_destruct() -> void:
 	queue_free()

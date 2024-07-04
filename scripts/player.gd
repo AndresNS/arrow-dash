@@ -11,6 +11,8 @@ const INITIAL_SPEED_BOOST: float = 2.0
 @onready var arrow_container: Node2D = $ArrowContainer
 @onready var arrow_animation: AnimationPlayer = $ArrowContainer/AnimationPlayer
 @onready var hurtbox_node: Area2D = $Hurtbox
+@onready var shield_timer: Timer = $ShieldTimer
+@onready var shield: Area2D = $Shield
 
 var arrow_speed: float = 1.5
 var max_health: int = 100
@@ -20,6 +22,7 @@ var is_boosting: bool = false
 var speed_boost: float = INITIAL_SPEED_BOOST
 
 func _ready() -> void:
+	shield.hide()
 	arrow_animation.speed_scale = arrow_speed
 	hurtbox = hurtbox_node as Hurtbox
 	if hurtbox:
@@ -44,8 +47,6 @@ func _physics_process(delta: float) -> void:
 		if (speed_boost < 1):
 			speed_boost = 1
 	
-	print(speed_boost)
-
 func take_damage(amount: int) -> void:
 	health -= amount
 	health = clamp(health, 0, max_health)
@@ -55,3 +56,16 @@ func heal(amount: int) -> void:
 	health += amount
 	health = clamp(health, 0, max_health)
 	emit_signal("health_changed", health)
+
+func activate_shield(duration: float) -> void:
+	if (!shield.visible):
+		print("activate shield")
+		shield_timer.start(duration)
+		shield.show()
+	else:
+		print("extend shield")
+		shield_timer.wait_time = duration
+
+func _on_shield_timer_timeout() -> void:
+	if (shield.visible):
+		shield.hide()

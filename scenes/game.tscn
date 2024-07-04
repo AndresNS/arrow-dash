@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=26 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="1_ulfj1"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_xllmo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c25d0qh53i3x1" path="res://scenes/animated_obstacle.tscn" id="4_lxg88"]
 [ext_resource type="PackedScene" uid="uid://dlma48cc08j0t" path="res://scenes/spawner.tscn" id="7_elw3u"]
 [ext_resource type="PackedScene" uid="uid://ce4tfefvqoky2" path="res://scenes/pickup_spawn_zone.tscn" id="9_ef6sf"]
+[ext_resource type="PackedScene" uid="uid://ieem2mb64o6p" path="res://scenes/shield_pickup.tscn" id="10_5apm7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_76dh6"]
 font_size = 10
@@ -1068,6 +1069,18 @@ offset_left = -152.0
 offset_top = 264.0
 offset_right = 188.0
 offset_bottom = 24.0
+
+[node name="ShieldPickup" parent="Pickups" instance=ExtResource("10_5apm7")]
+position = Vector2(584, 8)
+
+[node name="ShieldPickup2" parent="Pickups" instance=ExtResource("10_5apm7")]
+position = Vector2(-376, 0)
+
+[node name="ShieldPickup3" parent="Pickups" instance=ExtResource("10_5apm7")]
+position = Vector2(120, -424)
+
+[node name="ShieldPickup4" parent="Pickups" instance=ExtResource("10_5apm7")]
+position = Vector2(120, 472)
 
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true

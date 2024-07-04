@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjsl07r80kf14"]
+
+[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="1_j2t3j"]
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_yj3yd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgghx"]
+radius = 24.0208
+
+[node name="Shield" type="Area2D"]
+scale = Vector2(1.28, 1.28)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_yj3yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.988235, 0.988235, 0.988235, 0.32549)
+position = Vector2(0, -4)
+scale = Vector2(4.56, 4.56)
+texture = ExtResource("1_j2t3j")
+region_enabled = true
+region_rect = Rect2(96, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hgghx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
