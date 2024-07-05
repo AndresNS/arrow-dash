@@ -8,6 +8,7 @@ const SPEED: float = 65.0
 
 var player: Player = null
 var attack_damage: int = 5
+var points_on_kill: int = 5
 
 func _ready() -> void:
 	game_manager = get_tree().current_scene.get_node("GameManager")
