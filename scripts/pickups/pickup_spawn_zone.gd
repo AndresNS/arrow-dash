@@ -1,6 +1,6 @@
 extends ColorRect
 
-const HealPickupScene = preload("res://scenes/heal_pickup.tscn")
+const HealPickupScene = preload("res://scenes/pickups/heal_pickup.tscn")
 @onready var timer: Timer = $Timer
 
 @export var spawn_rate: float = 15.0

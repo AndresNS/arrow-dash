@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ce4tfefvqoky2"]
 
-[ext_resource type="Script" path="res://scripts/pickup_spawn_zone.gd" id="1_oto46"]
+[ext_resource type="Script" path="res://scripts/pickups/pickup_spawn_zone.gd" id="1_oto46"]
 
 [node name="PickupSpawnZone" type="ColorRect"]
 anchors_preset = 15

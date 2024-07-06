@@ -4,7 +4,7 @@ class_name Spawner
 
 @onready var timer: Timer = $Timer
 
-const EnemyScene = preload("res://scenes/enemy.tscn")
+const EnemyScene = preload("res://scenes/enemies/enemy.tscn")
 
 @export var spawn_rate: float = 5.0
 var game: Game = null

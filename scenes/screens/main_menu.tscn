@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0huqwl0h8fnl"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_yisrs"]
+[ext_resource type="Script" path="res://scripts/screens/main_menu.gd" id="1_elbsr"]
 
 [node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_yisrs")
+script = ExtResource("1_elbsr")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15

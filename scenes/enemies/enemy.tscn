@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b68m5pjj7hgl7"]
 
-[ext_resource type="Texture2D" uid="uid://bvx608jxwgol5" path="res://assets/sprites/Dungeon_Character.png" id="1_6e56r"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_agfo5"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_m68pa"]
+[ext_resource type="Texture2D" uid="uid://bvx608jxwgol5" path="res://assets/sprites/Dungeon_Character.png" id="2_0qoc4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4lkl"]
 radius = 4.0
@@ -10,10 +10,10 @@ radius = 4.0
 z_index = 90
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_agfo5")
+script = ExtResource("1_m68pa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6e56r")
+texture = ExtResource("2_0qoc4")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)
 

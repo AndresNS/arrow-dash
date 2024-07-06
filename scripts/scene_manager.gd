@@ -1,8 +1,8 @@
 extends Node
 
-@onready var MainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
-@onready var GameScene: PackedScene = preload("res://scenes/game.tscn")
-@onready var LeaderboardScene: PackedScene = preload("res://scenes/leaderboard.tscn")
+@onready var MainMenuScene: PackedScene = preload("res://scenes/screens/main_menu.tscn")
+@onready var GameScene: PackedScene = preload("res://scenes/screens/game.tscn")
+@onready var LeaderboardScene: PackedScene = preload("res://scenes/screens/leaderboard.tscn")
 
 func go_to_main_menu() -> void:
 	get_tree().change_scene_to_packed(MainMenuScene)

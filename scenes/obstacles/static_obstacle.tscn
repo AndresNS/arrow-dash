@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uqqocnpsdqml"]
 
-[ext_resource type="Script" path="res://scripts/static_obstacle.gd" id="1_atb83"]
+[ext_resource type="Script" path="res://scripts/obstacles/static_obstacle.gd" id="1_atb83"]
 [ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="2_geh27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3b5v"]
