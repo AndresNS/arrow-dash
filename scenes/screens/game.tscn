@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=28 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/screens/game.gd" id="1_13b0d"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_uwgxo"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4tfefvqoky2" path="res://scenes/pickups/pickup_spawn_zone.tscn" id="9_7lcyf"]
 [ext_resource type="PackedScene" uid="uid://ieem2mb64o6p" path="res://scenes/pickups/shield_pickup.tscn" id="10_edqc3"]
 [ext_resource type="PackedScene" uid="uid://b6k0ou3macrn1" path="res://scenes/pickups/boost_pickup.tscn" id="11_8ie6e"]
+[ext_resource type="PackedScene" uid="uid://ot2g15br7sjj" path="res://scenes/pickups/score_multiplier_pickup.tscn" id="12_j37aq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_76dh6"]
 font_size = 10
@@ -1083,23 +1084,33 @@ position = Vector2(120, -424)
 [node name="ShieldPickup4" parent="Pickups" instance=ExtResource("10_edqc3")]
 position = Vector2(120, 472)
 
+[node name="DashPickup" parent="Pickups" instance=ExtResource("11_8ie6e")]
+position = Vector2(96, 216)
+
+[node name="DashPickup2" parent="Pickups" instance=ExtResource("11_8ie6e")]
+position = Vector2(352, 0)
+
+[node name="DashPickup3" parent="Pickups" instance=ExtResource("11_8ie6e")]
+position = Vector2(96, -200)
+
+[node name="DashPickup4" parent="Pickups" instance=ExtResource("11_8ie6e")]
+position = Vector2(-144, 8)
+
+[node name="ScoreMultiplierPickup" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(-328, 176)
+
+[node name="ScoreMultiplierPickup2" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(-376, 248)
+
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="DashPickup" parent="." instance=ExtResource("11_8ie6e")]
-position = Vector2(96, 216)
-
-[node name="DashPickup2" parent="." instance=ExtResource("11_8ie6e")]
-position = Vector2(352, 0)
-
-[node name="DashPickup3" parent="." instance=ExtResource("11_8ie6e")]
-position = Vector2(96, -200)
-
-[node name="DashPickup4" parent="." instance=ExtResource("11_8ie6e")]
-position = Vector2(-144, 8)
+[node name="ScoreMultiplierTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="pressed" from="GameOverHUD/RetryButton" to="GameOverHUD" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="GameOverHUD/LeaderboardButton" to="GameOverHUD" method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="GameOverHUD/MainMenuButton" to="GameOverHUD" method="_on_main_menu_button_pressed"]
 [connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="ScoreMultiplierTimer" to="GameManager" method="_on_score_multiplier_timer_timeout"]

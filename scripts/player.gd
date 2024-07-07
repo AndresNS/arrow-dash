@@ -20,6 +20,7 @@ var health: int = max_health
 var hurtbox: Hurtbox
 var is_boosting: bool = false
 var speed_boost: float = INITIAL_SPEED_BOOST
+var speed_multiplier: float = 1
 
 func _ready() -> void:
 	shield.hide()
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		speed_boost = INITIAL_SPEED_BOOST
 		player_sprite.rotation = arrow_angle
-		velocity = Vector2(cos(arrow_angle - PI/2), sin(arrow_angle - PI/2)) * SPEED
+		velocity = Vector2(cos(arrow_angle - PI/2), sin(arrow_angle - PI/2)) * SPEED * speed_multiplier
 	
 	var collision: KinematicCollision2D = move_and_collide((velocity * speed_boost) * delta)
 	
