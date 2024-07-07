@@ -10,8 +10,8 @@ func _ready() -> void:
 	debuff_duration = 2.0
 	super._ready()
 
-func _physics_process(_delta: float) -> void:
-	seek_player()
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
 
 func debuff() -> void:
 	player.apply_debuff(debuff_type, debuff_duration)

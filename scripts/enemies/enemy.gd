@@ -12,6 +12,9 @@ func _ready() -> void:
 	game_manager = get_tree().current_scene.get_node("GameManager")
 	player = get_tree().current_scene.get_node("Player")
 
+func _physics_process(_delta: float) -> void:
+	seek_player()
+
 func seek_player() -> void:
 	if (game_manager.current_game_state != game_manager.GameState.PLAYING):
 		return

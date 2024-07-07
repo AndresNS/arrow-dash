@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://deow0xcw5f7m6"]
 
 [ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemies/enemy.tscn" id="1_oddck"]
-[ext_resource type="Script" path="res://scenes/enemies/slowdown_enemy.gd" id="2_fwm6y"]
+[ext_resource type="Script" path="res://scripts/enemies/slowdown_enemy.gd" id="2_go1do"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bc8f1"]
 radius = 4.0
 height = 14.0
 
 [node name="SlowdownEnemy" instance=ExtResource("1_oddck")]
-script = ExtResource("2_fwm6y")
+script = ExtResource("2_go1do")
 
 [node name="Sprite2D" parent="." index="0"]
 region_rect = Rect2(48, 16, 16, 16)

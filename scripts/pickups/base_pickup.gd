@@ -1,4 +1,2 @@
-extends Area2D
-
-class_name BasePickup
+class_name BasePickup extends Area2D
 

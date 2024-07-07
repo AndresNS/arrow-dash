@@ -7,6 +7,7 @@ const DebuffTimerScene = preload("res://scenes/debuff_timer.tscn")
 const SPEED: float = 100.0
 const INITIAL_SPEED_BOOST: float = 2.0
 const INITIAL_SPEED_MULTIPLIER: float = 1.0
+const INITIAL_ARROW_SPEED: float = 1.5
 
 @onready var player_sprite: Sprite2D = $PlayerSprite
 @onready var arrow_container: Node2D = $ArrowContainer
@@ -15,7 +16,6 @@ const INITIAL_SPEED_MULTIPLIER: float = 1.0
 @onready var shield_timer: Timer = $ShieldTimer
 @onready var shield: Shield = $Shield
 
-var arrow_speed: float = 1.5
 var max_health: int = 100
 var health: int = max_health
 var hurtbox: Hurtbox
@@ -26,7 +26,7 @@ var debuffs: Dictionary = {}
 
 func _ready() -> void:
 	shield.hide()
-	arrow_animation.speed_scale = arrow_speed
+	arrow_animation.speed_scale = INITIAL_ARROW_SPEED
 	hurtbox = hurtbox_node as Hurtbox
 	if hurtbox:
 		hurtbox.player = self
@@ -83,6 +83,8 @@ func apply_debuff(debuff_type: String, duration: float) -> void:
 func remove_debuff(debuff_type: String) -> void:
 	if (debuff_type == "slow_down"):
 		speed_multiplier = INITIAL_SPEED_MULTIPLIER
+	if (debuff_type == "arrow_speed_up"):
+		arrow_animation.speed_scale = INITIAL_ARROW_SPEED
 
 func on_debuff_timer_timeout(debuff_type:String, timer: Timer) -> void:
 	if debuffs.has(debuff_type):

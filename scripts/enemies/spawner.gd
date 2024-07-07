@@ -4,9 +4,10 @@ class_name Spawner extends Node2D
 
 const SeekerEnemyScene = preload("res://scenes/enemies/seeker_enemy.tscn")
 const SlowdownEnemyScene = preload("res://scenes/enemies/slowdown_enemy.tscn")
+const ArrowSpeedUpEnemyScene = preload("res://scenes/enemies/arrow_speed_up_enemy.tscn")
 
-var game: Game = null
 @export var spawn_rate: float = 5.0
+var game: Game = null
 var enemy_count: int = 1
 
 func _ready() -> void:
@@ -18,6 +19,8 @@ func _on_timer_timeout() -> void:
 	
 	if (enemy_count % 5 == 0):
 		enemy = SlowdownEnemyScene.instantiate()
+	elif (enemy_count % 7 == 0):
+		enemy = ArrowSpeedUpEnemyScene.instantiate()
 	else:
 		enemy = SeekerEnemyScene.instantiate()
 		
