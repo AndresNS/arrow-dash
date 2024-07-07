@@ -1,6 +1,4 @@
-extends BasePickup
-
-class_name ScoreMultiplierPickup
+class_name ScoreMultiplierPickup extends BasePickup
 
 var game_manager: GameManager = null
 var multiplier_factor: float = 2

@@ -1,6 +1,4 @@
-extends Node
-
-class_name GameManager
+class_name GameManager extends Node
 
 enum GameState { MAIN_MENU, PLAYING, PAUSED, GAME_OVER }
 

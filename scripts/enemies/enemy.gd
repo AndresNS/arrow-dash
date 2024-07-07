@@ -1,12 +1,12 @@
-extends CharacterBody2D
-
-class_name Enemy
+class_name Enemy extends CharacterBody2D
 
 var speed: float
 var game_manager: GameManager = null
 var player: Player = null
 var attack_damage: int
 var points_on_kill: int
+var debuff_type: String
+var debuff_duration: float
 
 func _ready() -> void:
 	game_manager = get_tree().current_scene.get_node("GameManager")

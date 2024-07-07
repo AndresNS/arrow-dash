@@ -1,6 +1,4 @@
-extends Area2D
-
-class_name Shield
+class_name Shield extends Area2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game_manager: GameManager = null

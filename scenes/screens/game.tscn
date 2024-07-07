@@ -1097,7 +1097,25 @@ position = Vector2(96, -200)
 position = Vector2(-144, 8)
 
 [node name="ScoreMultiplierPickup" parent="Pickups" instance=ExtResource("12_j37aq")]
-position = Vector2(-328, 176)
+position = Vector2(-96, -384)
+
+[node name="ScoreMultiplierPickup6" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(280, -400)
+
+[node name="ScoreMultiplierPickup7" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(-88, 424)
+
+[node name="ScoreMultiplierPickup8" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(288, 416)
+
+[node name="ScoreMultiplierPickup3" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(552, 144)
+
+[node name="ScoreMultiplierPickup4" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(200, 64)
+
+[node name="ScoreMultiplierPickup5" parent="Pickups" instance=ExtResource("12_j37aq")]
+position = Vector2(-328, -48)
 
 [node name="ScoreMultiplierPickup2" parent="Pickups" instance=ExtResource("12_j37aq")]
 position = Vector2(-376, 248)

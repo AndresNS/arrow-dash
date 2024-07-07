@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://7pb82dpqmenj"]
+
+[ext_resource type="Script" path="res://scripts/debuff_timer.gd" id="1_lxx82"]
+
+[node name="DebuffTimer" type="Timer"]
+one_shot = true
+script = ExtResource("1_lxx82")

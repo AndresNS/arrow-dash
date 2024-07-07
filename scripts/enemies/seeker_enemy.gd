@@ -6,7 +6,7 @@ func _ready() -> void:
 	points_on_kill = 5
 	super._ready()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	seek_player()
 
 

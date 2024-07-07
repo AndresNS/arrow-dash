@@ -1,7 +1,4 @@
-extends BaseObstacle
-
-class_name AnimatedObstacle
-
+class_name AnimatedObstacle extends BaseObstacle
 
 func _ready() -> void:
 	super._ready()

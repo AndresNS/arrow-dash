@@ -1,6 +1,4 @@
-extends Node2D
-
-class_name Game
+class_name Game extends Node2D
 
 @onready var game_manager: GameManager = %GameManager
 @onready var player: Player = $Player
