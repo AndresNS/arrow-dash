@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://q73qeupbc4m7"]
+
+[ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemies/enemy.tscn" id="1_jaa0f"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy_crab.gd" id="2_pff31"]
+[ext_resource type="PackedScene" uid="uid://b6ceblgw4g837" path="res://scenes/attack_range.tscn" id="3_0m7ph"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld7nf"]
+radius = 4.0
+height = 14.0
+
+[node name="EnemyCrab" instance=ExtResource("1_jaa0f")]
+script = ExtResource("2_pff31")
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(48, 0, 16, 16)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_ld7nf")
+
+[node name="AttackRange" parent="." index="2" instance=ExtResource("3_0m7ph")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AttackTimer" type="Timer" parent="." index="3"]
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="AttackRange"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://yjev03krca0x"]
+
+[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="1_qv4i4"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy_sea_urchin.gd" id="2_ck8v5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yccj2"]
+size = Vector2(16, 16)
+
+[node name="EnemySeaUrchin" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("2_ck8v5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qv4i4")
+region_enabled = true
+region_rect = Rect2(144, 48, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yccj2")

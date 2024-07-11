@@ -1,4 +1,4 @@
-class_name ArrowSlowdownEnemy extends Enemy
+class_name EnemyArrowSlowdown extends Enemy
 
 const ARROW_SPEED_UP_FACTOR = 2.5
 
@@ -8,10 +8,17 @@ func _ready() -> void:
 	points_on_kill = 10
 	debuff_type = "arrow_speed_up"
 	debuff_duration = 2.0
+	collision_triggers_attack = true
 	super._ready()
 
-func _physics_process(delta: float) -> void:
-	super._physics_process(delta)
+func _physics_process(_delta: float) -> void:
+	seek_player()
+
+func attack() -> void:
+	super.attack()
+	player.take_damage(attack_damage)
+	debuff()
+	self_destruct()
 
 func debuff() -> void:
 	player.apply_debuff(debuff_type, debuff_duration)

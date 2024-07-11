@@ -14,11 +14,11 @@ func _physics_process(_delta: float) -> void:
 	
 	if (visible && !active):
 		hide()
-	
 
 func _on_body_entered(body: Node2D) -> void:
 	if(active && body is Enemy):
 		var enemy : Enemy = body
-		enemy.self_destruct()
-		game_manager.update_score(enemy.points_on_kill)
+		if (enemy.dies_from_shield):
+			enemy.self_destruct()
+			game_manager.update_score(enemy.points_on_kill)
 

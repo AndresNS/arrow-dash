@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cboula6hv87e4"]
 
-[ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemies/enemy.tscn" id="1_eqbsy"]
-[ext_resource type="Script" path="res://scripts/enemies/arrow_speed_up_enemy.gd" id="2_spysw"]
+[ext_resource type="PackedScene" uid="uid://b68m5pjj7hgl7" path="res://scenes/enemies/enemy.tscn" id="1_8rwqp"]
+[ext_resource type="Script" path="res://scripts/enemies/enemy_arrow_speed_up.gd" id="2_hfwyo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0r2i"]
 radius = 5.0
 height = 14.0
 
-[node name="ArrowSpeedUpEnemy" instance=ExtResource("1_eqbsy")]
-script = ExtResource("2_spysw")
+[node name="ArrowSpeedUpEnemy" instance=ExtResource("1_8rwqp")]
+script = ExtResource("2_hfwyo")
 
 [node name="Sprite2D" parent="." index="0"]
 region_rect = Rect2(96, 0, 16, 16)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=20 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/screens/game.gd" id="1_13b0d"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_uwgxo"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="4_4hd6k"]
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="5_c2l3n"]
 [ext_resource type="PackedScene" uid="uid://uqqocnpsdqml" path="res://scenes/obstacles/static_obstacle.tscn" id="6_egxbw"]
-[ext_resource type="PackedScene" uid="uid://c25d0qh53i3x1" path="res://scenes/obstacles/animated_obstacle.tscn" id="7_ab0cw"]
 [ext_resource type="PackedScene" uid="uid://dlma48cc08j0t" path="res://scenes/enemies/spawner.tscn" id="8_g0ivq"]
+[ext_resource type="PackedScene" uid="uid://q73qeupbc4m7" path="res://scenes/enemies/enemy_crab.tscn" id="8_rdyda"]
 [ext_resource type="PackedScene" uid="uid://ce4tfefvqoky2" path="res://scenes/pickups/pickup_spawn_zone.tscn" id="9_7lcyf"]
+[ext_resource type="PackedScene" uid="uid://yjev03krca0x" path="res://scenes/enemies/enemy_sea_urchin.tscn" id="9_xybeo"]
 [ext_resource type="PackedScene" uid="uid://ieem2mb64o6p" path="res://scenes/pickups/shield_pickup.tscn" id="10_edqc3"]
 [ext_resource type="PackedScene" uid="uid://b6k0ou3macrn1" path="res://scenes/pickups/boost_pickup.tscn" id="11_8ie6e"]
 [ext_resource type="PackedScene" uid="uid://ot2g15br7sjj" path="res://scenes/pickups/score_multiplier_pickup.tscn" id="12_j37aq"]
@@ -348,7 +349,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_e6y4t")
 
-[sub_resource type="Animation" id="Animation_etra5"]
+[sub_resource type="Animation" id="Animation_ggfeb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -360,12 +361,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-288, -184)]
+"values": [Vector2(32, -168)]
 }
 
-[sub_resource type="Animation" id="Animation_wh65y"]
-resource_name = "move"
-length = 4.0
+[sub_resource type="Animation" id="Animation_xnw03"]
+resource_name = "roam"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -374,130 +374,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(496, -184), Vector2(496, 216)]
+"values": [Vector2(32, -168), Vector2(160, -168)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pny35"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7u2b"]
 _data = {
-"RESET": SubResource("Animation_etra5"),
-"move": SubResource("Animation_wh65y")
-}
-
-[sub_resource type="Animation" id="Animation_cbk5d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-288, -192)]
-}
-
-[sub_resource type="Animation" id="Animation_pfy2n"]
-resource_name = "move"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-288, -192), Vector2(-288, 216)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8oe5"]
-_data = {
-"RESET": SubResource("Animation_cbk5d"),
-"move": SubResource("Animation_pfy2n")
-}
-
-[sub_resource type="Animation" id="Animation_e8a48"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-77, 71)]
-}
-
-[sub_resource type="Animation" id="Animation_gae2g"]
-resource_name = "move"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-128, 376), Vector2(352, 376)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v4jdq"]
-_data = {
-"RESET": SubResource("Animation_e8a48"),
-"move": SubResource("Animation_gae2g")
-}
-
-[sub_resource type="Animation" id="Animation_r2pub"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(65, 21)]
-}
-
-[sub_resource type="Animation" id="Animation_411l0"]
-resource_name = "move"
-length = 4.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-128, -344), Vector2(344, -344)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_65y1t"]
-_data = {
-"RESET": SubResource("Animation_r2pub"),
-"move": SubResource("Animation_411l0")
+"RESET": SubResource("Animation_ggfeb"),
+"roam": SubResource("Animation_xnw03")
 }
 
 [node name="Game" type="Node2D"]
@@ -994,44 +880,6 @@ position = Vector2(-8, 136)
 
 [node name="Animated" type="Node" parent="Obstacles"]
 
-[node name="AnimatedObstacle2" parent="Obstacles/Animated" instance=ExtResource("7_ab0cw")]
-position = Vector2(-288, -184)
-rotation = 1.5708
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacles/Animated/AnimatedObstacle2"]
-libraries = {
-"": SubResource("AnimationLibrary_pny35")
-}
-autoplay = "move"
-
-[node name="AnimatedObstacle4" parent="Obstacles/Animated" instance=ExtResource("7_ab0cw")]
-position = Vector2(-288, -192)
-rotation = 1.5708
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacles/Animated/AnimatedObstacle4"]
-libraries = {
-"": SubResource("AnimationLibrary_x8oe5")
-}
-autoplay = "move"
-
-[node name="AnimatedObstacle" parent="Obstacles/Animated" instance=ExtResource("7_ab0cw")]
-position = Vector2(-77, 71)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacles/Animated/AnimatedObstacle"]
-libraries = {
-"": SubResource("AnimationLibrary_v4jdq")
-}
-autoplay = "move"
-
-[node name="AnimatedObstacle3" parent="Obstacles/Animated" instance=ExtResource("7_ab0cw")]
-position = Vector2(65, 21)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Obstacles/Animated/AnimatedObstacle3"]
-libraries = {
-"": SubResource("AnimationLibrary_65y1t")
-}
-autoplay = "move"
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Spawner" parent="Enemies" instance=ExtResource("8_g0ivq")]
@@ -1045,6 +893,18 @@ position = Vector2(616, 488)
 
 [node name="Spawner4" parent="Enemies" instance=ExtResource("8_g0ivq")]
 position = Vector2(-408, 496)
+
+[node name="CrabEnemy" parent="Enemies" instance=ExtResource("8_rdyda")]
+position = Vector2(32, -168)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/CrabEnemy"]
+libraries = {
+"": SubResource("AnimationLibrary_k7u2b")
+}
+autoplay = "roam"
+
+[node name="EnemySeaUrchin" parent="Enemies" instance=ExtResource("9_xybeo")]
+position = Vector2(168, -72)
 
 [node name="Pickups" type="Node" parent="."]
 

@@ -42,6 +42,9 @@ func _physics_process(delta: float) -> void:
 	var collision: KinematicCollision2D = move_and_collide((velocity * speed_boost * speed_multiplier) * delta)
 	
 	if collision:
+		if (collision.get_collider().has_method("attack")):
+			collision.get_collider().call("attack", self)
+		
 		velocity = velocity.bounce(collision.get_normal())
 		player_sprite.rotation = velocity.angle() + PI/2
 	
