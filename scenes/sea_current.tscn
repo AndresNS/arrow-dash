@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://hh2errilaonk"]
+
+[ext_resource type="Script" path="res://scripts/sea_current.gd" id="1_fwppq"]
+[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="1_lc5hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x7kk"]
+size = Vector2(17, 27)
+
+[node name="SeaCurrent" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_fwppq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("1_lc5hj")
+region_enabled = true
+region_rect = Rect2(80, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_7x7kk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
