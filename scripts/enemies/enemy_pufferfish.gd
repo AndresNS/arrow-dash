@@ -13,7 +13,6 @@ func _physics_process(_delta: float) -> void:
 func attack() -> void:
 	super.attack()
 	# play attack animation once
-	print("attack animation")
 	player.take_damage(attack_damage)
 	self_destruct()
 

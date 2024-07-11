@@ -18,9 +18,7 @@ func _ready() -> void:
 func attack() -> void:
 	super.attack()
 	# play attack animation once
-	print("attack animation")
 	if (player_in_range && player != null && !player.shield.active):
-		print("deal damage")
 		player.take_damage(attack_damage)
 
 func _on_attack_range_body_entered(body: Node2D) -> void:

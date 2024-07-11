@@ -1,11 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://boeq1yhv5i0q0"]
+[gd_scene load_steps=21 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/screens/game.gd" id="1_13b0d"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_uwgxo"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_hud.gd" id="3_i4ixy"]
 [ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="4_4hd6k"]
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="5_c2l3n"]
-[ext_resource type="PackedScene" uid="uid://uqqocnpsdqml" path="res://scenes/obstacles/static_obstacle.tscn" id="6_egxbw"]
+[ext_resource type="PackedScene" uid="uid://uqqocnpsdqml" path="res://scenes/obstacles/obstacle_static.tscn" id="6_qhbmw"]
+[ext_resource type="PackedScene" uid="uid://bccq8nsjuh4yc" path="res://scenes/obstacles/obstacle_fishing_net.tscn" id="7_v17x5"]
 [ext_resource type="PackedScene" uid="uid://dlma48cc08j0t" path="res://scenes/enemies/spawner.tscn" id="8_g0ivq"]
 [ext_resource type="PackedScene" uid="uid://q73qeupbc4m7" path="res://scenes/enemies/enemy_crab.tscn" id="8_rdyda"]
 [ext_resource type="PackedScene" uid="uid://ce4tfefvqoky2" path="res://scenes/pickups/pickup_spawn_zone.tscn" id="9_7lcyf"]
@@ -494,389 +495,395 @@ position_smoothing_enabled = true
 
 [node name="Static" type="Node" parent="Obstacles"]
 
-[node name="StaticObstacle97" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle97" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, -168)
 
-[node name="StaticObstacle98" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle98" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, -168)
 
-[node name="StaticObstacle99" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle99" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, -168)
 
-[node name="StaticObstacle100" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle100" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, -152)
 
-[node name="StaticObstacle101" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle101" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, -152)
 
-[node name="StaticObstacle102" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle102" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, -152)
 
-[node name="StaticObstacle103" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle103" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, -135)
 
-[node name="StaticObstacle104" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle104" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, -135)
 
-[node name="StaticObstacle105" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle105" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, -135)
 
-[node name="StaticObstacle106" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle106" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -152)
 
-[node name="StaticObstacle107" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle107" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -135)
 
-[node name="StaticObstacle108" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle108" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, -152)
 
-[node name="StaticObstacle109" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle109" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, -135)
 
-[node name="StaticObstacle110" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle110" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -120)
 
-[node name="StaticObstacle111" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle111" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -120)
 
-[node name="StaticObstacle112" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle112" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -120)
 
-[node name="StaticObstacle113" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle113" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -104)
 
-[node name="StaticObstacle114" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle114" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -104)
 
-[node name="StaticObstacle115" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle115" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -104)
 
-[node name="StaticObstacle116" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle116" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -88)
 
-[node name="StaticObstacle117" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle117" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -88)
 
-[node name="StaticObstacle118" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle118" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -88)
 
-[node name="StaticObstacle119" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle119" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -71)
 
-[node name="StaticObstacle120" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle120" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -71)
 
-[node name="StaticObstacle121" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle121" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -71)
 
-[node name="StaticObstacle122" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle122" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, -168)
 
-[node name="StaticObstacle123" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle123" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, -168)
 
-[node name="StaticObstacle124" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle124" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -152)
 
-[node name="StaticObstacle125" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle125" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -135)
 
-[node name="StaticObstacle126" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle126" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -152)
 
-[node name="StaticObstacle127" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle127" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, -135)
 
-[node name="StaticObstacle128" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle128" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, -168)
 
-[node name="StaticObstacle65" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle65" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, 136)
 
-[node name="StaticObstacle66" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle66" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, 136)
 
-[node name="StaticObstacle67" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle67" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, 136)
 
-[node name="StaticObstacle68" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle68" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, 152)
 
-[node name="StaticObstacle69" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle69" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, 152)
 
-[node name="StaticObstacle70" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle70" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, 152)
 
-[node name="StaticObstacle71" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle71" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(216, 169)
 
-[node name="StaticObstacle72" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle72" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(232, 169)
 
-[node name="StaticObstacle73" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle73" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, 169)
 
-[node name="StaticObstacle74" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle74" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 88)
 
-[node name="StaticObstacle75" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle75" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 105)
 
-[node name="StaticObstacle76" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle76" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, 152)
 
-[node name="StaticObstacle77" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle77" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(200, 169)
 
-[node name="StaticObstacle78" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle78" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 120)
 
-[node name="StaticObstacle79" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle79" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 104)
 
-[node name="StaticObstacle80" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle80" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 120)
 
-[node name="StaticObstacle81" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle81" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 136)
 
-[node name="StaticObstacle82" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle82" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 136)
 
-[node name="StaticObstacle83" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle83" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 120)
 
-[node name="StaticObstacle84" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle84" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 152)
 
-[node name="StaticObstacle85" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle85" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 136)
 
-[node name="StaticObstacle86" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle86" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 152)
 
-[node name="StaticObstacle87" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle87" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 169)
 
-[node name="StaticObstacle88" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle88" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 169)
 
-[node name="StaticObstacle89" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle89" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 153)
 
-[node name="StaticObstacle90" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle90" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(248, 136)
 
-[node name="StaticObstacle91" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle91" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(264, 72)
 
-[node name="StaticObstacle92" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle92" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 88)
 
-[node name="StaticObstacle93" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle93" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 105)
 
-[node name="StaticObstacle94" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle94" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 72)
 
-[node name="StaticObstacle95" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle95" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(296, 89)
 
-[node name="StaticObstacle96" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle96" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(280, 72)
 
-[node name="StaticObstacle2" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle2" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -168)
 
-[node name="StaticObstacle" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -168)
 
-[node name="StaticObstacle3" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle3" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, -168)
 
-[node name="StaticObstacle4" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle4" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -152)
 
-[node name="StaticObstacle6" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle6" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, -152)
 
-[node name="StaticObstacle5" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle5" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -152)
 
-[node name="StaticObstacle7" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle7" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -135)
 
-[node name="StaticObstacle8" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle8" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -135)
 
-[node name="StaticObstacle9" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle9" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, -135)
 
-[node name="StaticObstacle13" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle13" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, -152)
 
-[node name="StaticObstacle14" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle14" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, -135)
 
-[node name="StaticObstacle15" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle15" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -152)
 
-[node name="StaticObstacle16" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle16" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -135)
 
-[node name="StaticObstacle10" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle10" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -119)
 
-[node name="StaticObstacle11" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle11" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -119)
 
-[node name="StaticObstacle12" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle12" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -119)
 
-[node name="StaticObstacle17" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle17" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -103)
 
-[node name="StaticObstacle18" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle18" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -103)
 
-[node name="StaticObstacle19" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle19" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -103)
 
-[node name="StaticObstacle20" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle20" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -87)
 
-[node name="StaticObstacle21" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle21" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -87)
 
-[node name="StaticObstacle22" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle22" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -87)
 
-[node name="StaticObstacle23" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle23" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, -70)
 
-[node name="StaticObstacle24" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle24" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, -70)
 
-[node name="StaticObstacle25" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle25" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, -70)
 
-[node name="StaticObstacle28" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle28" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, -168)
 
-[node name="StaticObstacle33" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle33" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, -168)
 
-[node name="StaticObstacle34" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle34" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, -152)
 
-[node name="StaticObstacle35" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle35" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, -135)
 
-[node name="StaticObstacle36" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle36" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, -152)
 
-[node name="StaticObstacle37" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle37" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, -135)
 
-[node name="StaticObstacle38" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle38" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, -168)
 
-[node name="StaticObstacle26" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle26" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 72)
 
-[node name="StaticObstacle27" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle27" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 72)
 
-[node name="StaticObstacle29" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle29" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, 136)
 
-[node name="StaticObstacle30" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle30" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 88)
 
-[node name="StaticObstacle31" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle31" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, 152)
 
-[node name="StaticObstacle32" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle32" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 88)
 
-[node name="StaticObstacle39" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle39" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 105)
 
-[node name="StaticObstacle40" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle40" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 105)
 
-[node name="StaticObstacle41" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle41" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-56, 169)
 
-[node name="StaticObstacle42" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle42" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, 152)
 
-[node name="StaticObstacle43" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle43" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, 169)
 
-[node name="StaticObstacle44" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle44" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 72)
 
-[node name="StaticObstacle45" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle45" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 89)
 
-[node name="StaticObstacle46" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle46" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 121)
 
-[node name="StaticObstacle47" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle47" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 121)
 
-[node name="StaticObstacle48" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle48" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 105)
 
-[node name="StaticObstacle49" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle49" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 121)
 
-[node name="StaticObstacle50" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle50" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 137)
 
-[node name="StaticObstacle51" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle51" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 137)
 
-[node name="StaticObstacle52" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle52" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 153)
 
-[node name="StaticObstacle53" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle53" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 153)
 
-[node name="StaticObstacle54" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle54" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 137)
 
-[node name="StaticObstacle55" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle55" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-104, 154)
 
-[node name="StaticObstacle56" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle56" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-88, 170)
 
-[node name="StaticObstacle57" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle57" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-72, 170)
 
-[node name="StaticObstacle58" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle58" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-40, 136)
 
-[node name="StaticObstacle59" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle59" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, 136)
 
-[node name="StaticObstacle60" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle60" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, 152)
 
-[node name="StaticObstacle61" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle61" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-24, 169)
 
-[node name="StaticObstacle62" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle62" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, 152)
 
-[node name="StaticObstacle63" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle63" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, 169)
 
-[node name="StaticObstacle64" parent="Obstacles/Static" instance=ExtResource("6_egxbw")]
+[node name="StaticObstacle64" parent="Obstacles/Static" instance=ExtResource("6_qhbmw")]
 position = Vector2(-8, 136)
+
+[node name="ObstacleFishingNet" parent="Obstacles/Static" instance=ExtResource("7_v17x5")]
+position = Vector2(-104, -24)
+
+[node name="ObstacleFishingNet2" parent="Obstacles/Static" instance=ExtResource("7_v17x5")]
+position = Vector2(24, 176)
 
 [node name="Animated" type="Node" parent="Obstacles"]
 

@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://c25d0qh53i3x1"]
 
-[ext_resource type="Script" path="res://scripts/obstacles/animated_obstacle.gd" id="1_1cg8v"]
-[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="2_fvfru"]
+[ext_resource type="Script" path="res://scripts/obstacles/obstacle_animated.gd" id="1_yamey"]
+[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="2_idvit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yo3a"]
 size = Vector2(32, 16)
 
 [node name="AnimatedObstacle" type="AnimatableBody2D"]
 collision_mask = 0
-script = ExtResource("1_1cg8v")
+script = ExtResource("1_yamey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fvfru")
+texture = ExtResource("2_idvit")
 region_enabled = true
 region_rect = Rect2(96, 48, 32, 16)
 
