@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl7vhiupryg48"]
+
+[ext_resource type="PackedScene" uid="uid://cgtkdc8qcohwp" path="res://scenes/pickups/pickup.tscn" id="1_ffsqq"]
+[ext_resource type="Script" path="res://scripts/pickups/pickup_food.gd" id="2_cytt1"]
+
+[node name="PickupFood" instance=ExtResource("1_ffsqq")]
+script = ExtResource("2_cytt1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

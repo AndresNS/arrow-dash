@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody2D
 
-signal health_changed(new_health: int) 
+signal health_changed(new_health: int)
+signal food_collected()
 
 const DebuffTimerScene = preload("res://scenes/debuff_timer.tscn")
 
@@ -65,6 +66,9 @@ func heal(amount: int) -> void:
 	health += amount
 	health = clamp(health, 0, max_health)
 	emit_signal("health_changed", health)
+	
+func collect_food() -> void:
+	emit_signal("food_collected")
 
 func activate_shield(duration: float) -> void:
 	if (!shield.active):

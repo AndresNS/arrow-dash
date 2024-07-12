@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgtkdc8qcohwp"]
+
+[ext_resource type="Script" path="res://scripts/pickups/pickup.gd" id="1_8nerr"]
+[ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="2_3dgo1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cpfna"]
+radius = 5.0
+
+[node name="Pickup" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_8nerr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_3dgo1")
+region_enabled = true
+region_rect = Rect2(96, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cpfna")

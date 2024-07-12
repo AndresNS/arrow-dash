@@ -9,5 +9,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body is Player):
-		game_manager.activate_score_multiplier(multiplier_duration, multiplier_factor)
+		#game_manager.activate_score_multiplier(multiplier_duration, multiplier_factor)
 		queue_free()

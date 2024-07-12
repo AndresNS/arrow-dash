@@ -38,13 +38,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play"
 
-[node name="LeaderboardButton" type="Button" parent="."]
-offset_left = 32.0
-offset_top = 184.0
-offset_right = 153.0
-offset_bottom = 215.0
-text = "Leaderboard"
-
 [node name="QuitButton" type="Button" parent="."]
 offset_left = 72.0
 offset_top = 224.0
@@ -53,5 +46,4 @@ offset_bottom = 255.0
 text = "Quit"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

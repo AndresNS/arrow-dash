@@ -1,7 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://boeq1yhv5i0q0"]
 
 [ext_resource type="Script" path="res://scripts/screens/game.gd" id="1_13b0d"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_uwgxo"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_hud.gd" id="3_i4ixy"]
 [ext_resource type="Texture2D" uid="uid://db4s47d7v50k4" path="res://assets/sprites/Dungeon_Tileset.png" id="4_4hd6k"]
 [ext_resource type="PackedScene" uid="uid://b5x4q4okmydmv" path="res://scenes/player.tscn" id="5_c2l3n"]
@@ -15,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b6k0ou3macrn1" path="res://scenes/pickups/boost_pickup.tscn" id="11_8ie6e"]
 [ext_resource type="PackedScene" uid="uid://ot2g15br7sjj" path="res://scenes/pickups/score_multiplier_pickup.tscn" id="12_j37aq"]
 [ext_resource type="PackedScene" uid="uid://hh2errilaonk" path="res://scenes/sea_current.tscn" id="15_m3hfc"]
+[ext_resource type="PackedScene" uid="uid://d3vv42chww8xs" path="res://scenes/levels/level.tscn" id="16_bi0cd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_76dh6"]
 font_size = 10
@@ -390,10 +390,6 @@ _data = {
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_13b0d")
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("2_uwgxo")
 
 [node name="IngameHUD" type="CanvasLayer" parent="."]
 
@@ -1001,9 +997,11 @@ position = Vector2(144, -96)
 position = Vector2(136, 96)
 rotation = 1.20091
 
+[node name="Levels" type="Node" parent="."]
+
+[node name="World1Level1" parent="Levels" instance=ExtResource("16_bi0cd")]
+
 [connection signal="pressed" from="GameOverHUD/RetryButton" to="GameOverHUD" method="_on_retry_button_pressed"]
 [connection signal="pressed" from="GameOverHUD/LeaderboardButton" to="GameOverHUD" method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="GameOverHUD/MainMenuButton" to="GameOverHUD" method="_on_main_menu_button_pressed"]
-[connection signal="health_changed" from="Player" to="." method="_on_player_health_changed"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
-[connection signal="timeout" from="ScoreMultiplierTimer" to="GameManager" method="_on_score_multiplier_timer_timeout"]
