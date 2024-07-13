@@ -5,49 +5,51 @@ enum GameState { MAIN_MENU, PLAYING, PAUSED, GAME_OVER }
 signal game_over()
 
 @onready var MainMenuScene: PackedScene = preload("res://scenes/screens/main_menu.tscn")
-@onready var LeaderboardScene: PackedScene = preload("res://scenes/screens/leaderboard.tscn")
-@onready var Levels: Array[PackedScene] = [
+@onready var levels: Array[PackedScene] = [
 	preload("res://scenes/levels/world_1_level_1.tscn"),
-	preload("res://scenes/levels/world_1_level_2.tscn")
+	preload("res://scenes/levels/world_1_level_2.tscn"),
 ]
 
 var current_game_state: GameState = GameState.MAIN_MENU
-var current_level: int
-
+var current_level: String
+var progress: Dictionary = {
+	"1-1": {
+		"index": 0,
+		"completed": false,
+		"performance": null,
+		"performance_text": ""
+	},
+	"1-2": {
+		"index": 1,
+		"completed": false,
+		"performance": null,
+		"performance_text": ""
+	}
+}
 func go_to_main_menu() -> void:
 	get_tree().change_scene_to_packed(MainMenuScene)
 
-func go_to_leaderboard() -> void:
-	get_tree().change_scene_to_packed(LeaderboardScene)
-
-func go_to_level(level: int) -> void:
-	if (level < Levels.size()):
+func go_to_level(level: String) -> void:
+	if (level in progress.keys()):
 		current_level = level
-		get_tree().change_scene_to_packed(Levels[level])
+		get_tree().change_scene_to_packed(levels[progress[level].index])
 		
 func load_next_level() -> void:
-	if current_level + 1 < Levels.size():
-		current_level += 1
-		get_tree().change_scene_to_packed(Levels[current_level])
+	var current_level_index: int = progress[current_level].index
+	var next_level: Dictionary = get_level_by_index(current_level_index + 1)
+	
+	if next_level.keys().size() > 0:
+		current_level_index = next_level.index
+		get_tree().change_scene_to_packed(levels[next_level.index])
 	else:
 		go_to_main_menu()
 
-#func update_score(amount: int) -> void:
-	#if (current_game_state != GameState.PLAYING):
-		#return
-	#score += round(amount * score_multiplier_factor)
-	#score_label.text = "Score: %d" % score
-	#
+func get_level_by_index(index: int) -> Dictionary:
+	for key: String in progress:
+		if progress[key].index == index:
+			return progress[key]
+	return {}
+
 func end_game() -> void:
 	current_game_state = GameState.GAME_OVER
-	#game_over_score_label.text = "Score: %d" % score
 	game_over.emit()
-
-#func activate_score_multiplier(duration: float, factor: float) -> void:
-	#score_multiplier_active = true
-	#score_multiplier_timer.start(duration)
-	#score_multiplier_factor = factor
-#
-#func _on_score_multiplier_timer_timeout() -> void:
-	#score_multiplier_active = false
-	#score_multiplier_factor = 1

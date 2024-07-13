@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2u175ixhxm0n"]
+
+[ext_resource type="Script" path="res://scripts/levels/LevelSelectionItem.gd" id="1_pd46c"]
+
+[node name="LevelSelectionItem" type="Node2D"]
+script = ExtResource("1_pd46c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 80.0
+offset_bottom = 88.0
+color = Color(0, 0.162068, 0.193319, 1)
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer"]
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Title"
+horizontal_alignment = 1
+
+[node name="AchievementsLabel" type="Label" parent="CanvasLayer"]
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 47.0
+text = "☆☆☆"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 72.0
+offset_bottom = 79.0
+text = "Play"

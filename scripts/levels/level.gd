@@ -10,12 +10,15 @@ enum LevelOutcome { SUCCESS, FAILED }
 @onready var food_collected_label: Label = $LevelFailedHUD/FoodCollectedLabel
 @onready var performance_rating_label: Label = $LevelCompletedHUD/PerformanceRatingLabel
 
+var level_id: String
 var required_food: int
 var food_collected: int = 0
 var performance_rating: int
+var performance_rating_text: String
 
 func _ready() -> void:
 	GameManager.current_game_state = GameManager.GameState.PLAYING
+	GameManager.current_level = level_id
 	Engine.time_scale = 1
 	level_completed_hud.hide()
 	level_failed_hud.hide()
@@ -26,7 +29,7 @@ func _ready() -> void:
 	player.food_collected.connect(on_food_collected)
 	player.health_changed.connect(on_player_health_changed)
 
-func get_performance_rating(hp_left: int) -> int:
+func get_performance_rating_value(hp_left: int) -> int:
 	if (hp_left < 60):
 		return 0
 	elif (hp_left < 80):
@@ -48,8 +51,14 @@ func update_hp_label(health: int, max_health: int) -> void:
 func end_level(outcome: LevelOutcome) -> void:
 	Engine.time_scale = 0
 	if (outcome == LevelOutcome.SUCCESS):
-		performance_rating = get_performance_rating(player.health)
-		performance_rating_label.text = "★".repeat(performance_rating) + "☆".repeat(3 - performance_rating)
+		performance_rating = get_performance_rating_value(player.health)
+		performance_rating_text = Utils.get_performance_rating_text(performance_rating)
+		performance_rating_label.text = performance_rating_text
+		
+		GameManager.progress[level_id].completed = true
+		GameManager.progress[level_id].performance = performance_rating
+		GameManager.progress[level_id].performance_text = performance_rating_text
+		
 		level_completed_hud.show()
 	else:
 		food_collected_label.text = "Food Collected: %d" % food_collected
