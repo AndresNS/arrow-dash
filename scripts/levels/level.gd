@@ -28,6 +28,7 @@ func _ready() -> void:
 	
 	player.food_collected.connect(on_food_collected)
 	player.health_changed.connect(on_player_health_changed)
+	player.level_ended.connect(end_level)
 
 func get_performance_rating_value(hp_left: int) -> int:
 	if (hp_left < 60):
@@ -67,4 +68,4 @@ func end_level(outcome: LevelOutcome) -> void:
 func on_player_health_changed(new_health: int) -> void:
 	update_hp_label(new_health, player.max_health)
 	if (new_health <= 0):
-		end_level(LevelOutcome.FAILED)
+		player.player_state = player.PlayerState.DEAD

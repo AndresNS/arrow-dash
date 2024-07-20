@@ -223,7 +223,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"die",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -308,7 +308,7 @@ script = ExtResource("1_pi5vt")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.4375, 0.4375)
 sprite_frames = SubResource("SpriteFrames_mcouv")
-animation = &"swim"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

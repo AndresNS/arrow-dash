@@ -2,6 +2,9 @@ class_name Player extends CharacterBody2D
 
 signal health_changed(new_health: int)
 signal food_collected()
+signal level_ended(level_outcome: Level.LevelOutcome)
+
+enum PlayerState { STOPPED, MOVING, DEAD }
 
 const DebuffTimerScene = preload("res://scenes/debuff_timer.tscn")
 
@@ -17,6 +20,7 @@ const INITIAL_ARROW_SPEED: float = 1.5
 @onready var shield_timer: Timer = $ShieldTimer
 @onready var shield: Shield = $Shield
 
+var player_state: PlayerState = PlayerState.STOPPED
 var max_health: int = 100
 var health: int = max_health
 var hurtbox: Hurtbox
@@ -35,32 +39,42 @@ func _ready() -> void:
 		hurtbox.player = self
 
 func _physics_process(delta: float) -> void:
-	var arrow_angle: float = arrow_container.rotation
-		
-	if Input.is_action_just_pressed("ui_accept"):
-		player_sprite.play("boost")
-		speed_boost = INITIAL_SPEED_BOOST
-		player_sprite.rotation = arrow_angle
-		velocity = Vector2(cos(arrow_angle - PI/2), sin(arrow_angle - PI/2)) * SPEED
-		
-	set_swiming_animation_speed(SPEED * speed_boost * speed_multiplier)
-	var collision: KinematicCollision2D = move_and_collide((velocity * speed_boost * speed_multiplier) * delta)
-	
-	if collision:
-		if (collision.get_collider().has_method("attack")):
-			collision.get_collider().call("attack", self)
-		
-		velocity = velocity.bounce(collision.get_normal())
-		player_sprite.rotation = velocity.angle() + PI/2
-	
-	if (speed_boost >= 1):
-		speed_boost -= 0.05
-		if (speed_boost < 1):
-			speed_boost = 1
-	
 	if (shield.active && shield_timer.time_left <= 1.5):
 		blink_shield()
 	
+	var arrow_angle: float = arrow_container.rotation
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		if (player_state != PlayerState.DEAD):
+			player_state = PlayerState.MOVING
+			player_sprite.play("boost")
+			speed_boost = INITIAL_SPEED_BOOST
+			player_sprite.rotation = arrow_angle
+			velocity = Vector2(cos(arrow_angle - PI/2), sin(arrow_angle - PI/2)) * SPEED
+	
+	match player_state:
+		PlayerState.STOPPED:
+			pass
+		
+		PlayerState.MOVING:
+			set_swiming_animation_speed(SPEED * speed_boost * speed_multiplier)
+			var collision: KinematicCollision2D = move_and_collide((velocity * speed_boost * speed_multiplier) * delta)
+			
+			if collision:
+				if (collision.get_collider().has_method("attack")):
+					collision.get_collider().call("attack", self)
+				velocity = velocity.bounce(collision.get_normal())
+				player_sprite.rotation = velocity.angle() + PI/2
+			
+			if (speed_boost >= 1):
+				speed_boost -= 0.05
+				if (speed_boost < 1):
+					speed_boost = 1
+		
+		PlayerState.DEAD:
+			player_sprite.play("die")
+			arrow_container.hide()
+
 func take_damage(amount: int) -> void:
 	health -= amount
 	health = clamp(health, 0, max_health)
@@ -106,11 +120,6 @@ func on_debuff_timer_timeout(debuff_type:String, timer: Timer) -> void:
 		remove_debuff(debuff_type)
 	timer.queue_free()
 
-func on_player_sprite_animation_finished() -> void:
-	pass #print(animation)
-	#if (animation == "boost"):
-		#player_sprite.play("swiming")
-
 func _on_shield_timer_timeout() -> void:
 	if (shield.active):
 		shield.active = false
@@ -118,3 +127,5 @@ func _on_shield_timer_timeout() -> void:
 func _on_player_sprite_animation_finished() -> void:
 	if (player_sprite.animation == "boost"):
 		player_sprite.play("swim")
+	if (player_sprite.animation == "die"):
+		emit_signal("level_ended", Level.LevelOutcome.FAILED)

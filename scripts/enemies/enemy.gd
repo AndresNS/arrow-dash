@@ -16,7 +16,7 @@ func seek_player() -> void:
 	if (GameManager.current_game_state != GameManager.GameState.PLAYING):
 		return
 	
-	if (player):
+	if (player && player.player_state != player.PlayerState.DEAD):
 		var direction: Vector2 = (player.position - position).normalized()
 		velocity = direction * speed
 		move_and_slide()
