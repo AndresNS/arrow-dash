@@ -7,5 +7,5 @@ func _on_body_entered(body: Node2D) -> void:
 		var enemy : Enemy = body
 		
 		if (player != null && !player.shield.active && enemy.collision_triggers_attack):
-			enemy.attack()
+			enemy.enemy_state = enemy.EnemyState.ATTACKING
 		
