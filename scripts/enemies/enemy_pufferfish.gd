@@ -20,9 +20,11 @@ func _physics_process(delta: float) -> void:
 			seek_player()
 			
 		EnemyState.ATTACKING:
+			if(enemy_sprite.animation == "attack"):
+				return
+			
 			enemy_sprite.play("attack")
 			attack()
-			enemy_state = EnemyState.VANISHING
 		
 		EnemyState.VANISHING:
 			speed = 180
@@ -34,3 +36,7 @@ func _physics_process(delta: float) -> void:
 func attack() -> void:
 	super.attack()
 	player.take_damage(attack_damage)
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if (enemy_sprite.animation == "attack"):
+		enemy_state = EnemyState.VANISHING
